@@ -26,7 +26,7 @@ def get_value_input(prompt_text:str="Input", convert:callable=(lambda x: x), def
 
     full_prompt_text = "".join([ # Prompt text as one string
         prompt_text,
-        f" (default: \"{default}\")" if default else "",
+        f" (default: \"{default}\")" if default is not None else "",
         ": "
     ])
 
@@ -34,7 +34,7 @@ def get_value_input(prompt_text:str="Input", convert:callable=(lambda x: x), def
         try:
             user_input = input(full_prompt_text)
             
-            if user_input == "" and default: # Default for blank strings
+            if user_input == "" and default is not None: # Default for blank strings
                 converted_user_input = default
             elif user_input == "":
                 raise InputError("No default value, cannot be blank")
