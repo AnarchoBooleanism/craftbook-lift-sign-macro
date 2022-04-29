@@ -21,7 +21,7 @@ while __name__ == "__main__":
 
     for text in generate_sign(floor_count, has_basement, has_rooftop): # Get generator, and iterate over each list
         keyboard.wait(HOTKEY) # Wait for hotkey, then type text and escape
-        print(f"Writing \"{text[0]}\"...")
+        print(f"Writing \"{text[0]}\" - \"{text[1]}\"...")
         for line in text:
             keyboard.write(line)
             keyboard.send("enter")
